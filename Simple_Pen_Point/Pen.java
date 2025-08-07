@@ -29,4 +29,39 @@ public class Pen {
             System.out.println(moves);
         }
     }
+
+    // method to draw square qo-ordinates
+    public void drawSquare(int lineLength) {
+        Point start = location;
+
+        // first Start moves towards Right (x-axis) --> of line length 5, why 5 ?
+        // because we are passing 5 in arguments in Main.java class
+        Point p1 = new Point(location.getx() + lineLength, location.gety());
+        LineTo(p1);
+
+        Point p2 = new Point(p1.getx(), p1.gety() + lineLength);
+        LineTo(p2);
+
+        Point p3 = new Point(p2.getx() - lineLength, p2.gety());
+        LineTo(p3);
+
+        LineTo(start);
+    }
+
+    // this method is for rectangle and designed as like width= 2*height
+    public void drawRectangle(int lineLength) {
+        Point start = location;
+
+        Point p1 = new Point(location.getx() + lineLength + lineLength, location.gety());
+        LineTo(p1);
+
+        Point p2 = new Point(p1.getx(), p1.gety() + lineLength);
+        LineTo(p2);
+
+        Point p3 = new Point(p2.getx() - lineLength - lineLength, p2.gety());
+        LineTo(p3);
+
+        LineTo(start);
+
+    }
 }
