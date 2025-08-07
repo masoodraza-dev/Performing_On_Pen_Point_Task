@@ -1,13 +1,14 @@
 
 public class Main {
     public static void main(String[] args) {
-        Point p1 = new Point(2, 3);
+        Point p1 = new Point(5, 10);
         Point p2 = new Point(4, 5);
         p1.add(p2);
         Point a = new Point(1, 2);
         Point b = new Point(1, 3);
 
         Pen pen = new Pen();
+        Pen pen1 = new Pen();
 
         pen.MoveTo(p1);
         pen.LineTo(p2);
@@ -30,6 +31,11 @@ public class Main {
         System.out.println("Copy: " + c2);
 
         c2.setxy(100, 200);
+
+        //for calling drawsquare and drawRectangle methods
+        pen1.MoveTo(new Point(10, 10));
+        pen1.drawSquare(5);
+        pen1.drawRectangle(7);
 
         pen.showHistory();
 
