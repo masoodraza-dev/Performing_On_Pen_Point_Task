@@ -48,9 +48,10 @@ public class Pen {
         LineTo(start);
     }
 
-    // this method is for rectangle and designed as like width= 2*height
+    // this method is for rectangle and designed as like width = 2*height
     public void drawRectangle(int lineLength) {
         Point start = location;
+        System.out.println("Rectangle through only one attribute:");
 
         Point p1 = new Point(location.getx() + lineLength + lineLength, location.gety());
         LineTo(p1);
@@ -64,4 +65,23 @@ public class Pen {
         LineTo(start);
 
     }
+
+    // Making this rectangle through giving two attributes are width and height
+    public void drawRectangle2(int width, int height) {
+        Point start = location;
+
+        System.out.println("Making this is rectangle 2");
+
+        Point p1 = new Point(location.getx() + width, location.gety());
+        LineTo(p1);
+
+        Point p2 = new Point(p1.getx(), p1.gety() + height);
+        LineTo(p2);
+
+        Point p3 = new Point(p2.getx() - width, p2.gety());
+        LineTo(p3);
+
+        LineTo(start);
+    }
+
 }
