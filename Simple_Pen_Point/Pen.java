@@ -84,4 +84,21 @@ public class Pen {
         LineTo(start);
     }
 
+    public void drawTriangle(int sideLength) {
+        Point start = location.copy();
+        System.out.println("c-ordinates of Triangle:");
+
+        Point p1 = new Point(start.getx() + sideLength, start.gety());
+        LineTo(p1);
+
+        int height = (int) (Math.sqrt(3) / 2 * sideLength);
+        Point p2 = new Point(start.getx() + sideLength / 2, start.gety()); // this code drawing a line from Left corner
+                                                                           // to up/height.
+        // Point p2 = new Point(p1.getx() - sideLength / 2 , start.gety()); ---> this
+        // code drawing a line from right corner to up/height.
+        LineTo(p2);
+
+        LineTo(start);
+    }
+
 }
