@@ -32,12 +32,16 @@ public class Main {
 
         c2.setxy(100, 200);
 
-        //for calling drawsquare and drawRectangle methods
         pen1.MoveTo(new Point(10, 10));
+
         pen1.drawSquare(5);
         pen1.drawRectangle(7);
+        pen1.drawRectangle2(4, 5);
+
+        pen1.drawTriangle(6);
 
         pen.showHistory();
+        pen1.showHistory();
 
     }
 }
