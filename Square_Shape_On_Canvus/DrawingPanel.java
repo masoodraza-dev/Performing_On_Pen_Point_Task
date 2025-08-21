@@ -5,23 +5,23 @@ import java.util.ArrayList;
 public class drawingPanel extends JPanel {
     private Pen pen;
 
-    public DrawingPanel(Pen pen) {
+    public drawingPanel(Pen pen) {
         this.pen = pen;
-        setBackground(Color.WHITE);
+        setBackground(Color.WHITE); 
     }
 
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        ArrayList<Point> path = pen.getPath();
-        g.setColor(Color.BLACK);
+        Graphics2D g2 = (Graphics2D) g;
+        g2.setColor(Color.BLACK); 
 
-        for (int i = 0; i < path.size() - 1; i++) {
-            Point p1 = path.get(i);
-            Point p2 = path.get(i + 1);
-            g.drawLine(p1.getx(), p1.gety(), p2.getx(), p2.gety());
+        ArrayList<Line> path = pen.getPath();
+        for (Line line : path) {
+            g2.drawLine(
+                    line.start.getx(), line.start.gety(),
+                    line.end.getx(), line.end.gety());
         }
     }
-
 }
