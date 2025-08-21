@@ -3,7 +3,7 @@ import java.util.*;
 public class Pen {
     private Point location;
     private ArrayList<String> pathHistory;
-    private ArrayList<Point> path;
+    private ArrayList<Line> path;
 
     public Pen() {
         location = new Point(0, 0);
@@ -17,15 +17,14 @@ public class Pen {
         location = newLocation;
         System.out.println("Pen moved to " + location);
         pathHistory.add("Pen moved to " + location);
-        path.add(location.copy());
 
     }
 
     public void LineTo(Point newLocation) {
+        Line line = new Line(location.copy(), newLocation.copy());
+        path.add(line);
         pathHistory.add("Line drawn from " + location + " To " + newLocation);
-        path.add(location.copy());
         location = newLocation;
-        path.add(location.copy());
         System.out.println("Draw line from " + location + " To " + newLocation);
 
     }
@@ -108,7 +107,7 @@ public class Pen {
         LineTo(start);
     }
 
-    public ArrayList<Point> getPath() {
+    public ArrayList<Line> getPath() {
         return path;
     }
 
